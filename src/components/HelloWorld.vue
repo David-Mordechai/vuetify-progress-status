@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-card>
-      <v-progress-linear :model-value="progress" height="10" location="buttom" absolute color="primary" />
+      <v-progress-linear :model-value="progress" height="10" location="top" absolute color="primary" />
       <v-card-item>
         <div>
           <div class="text-h6 mb-3">
