@@ -1,61 +1,58 @@
 <template>
     <v-container>
         <v-card>
-            <v-progress-linear :model-value="progress" height="20" location="top" absolute color="primary">
+            <v-progress-linear :model-value="progress" height="20" location="top" color="primary">
                 20%
             </v-progress-linear>
 
-            <v-card-item style="background-color: rgba(var(--v-theme-background),0.7);">
-                <div class="text-h6" style="padding-top: 10px;">
-                    Progress
-                </div>
-                <div class="status text-h6">
+            <v-card-item class="wrapper">
+                <div class="items text-h6">
 
-                    <v-card class="item" elevation="2">
-                        <div style="font-size: .7em; color: rgb(var(--v-theme-on-code));">
+                    <v-card class="item" elevation="1">
+                        <div class="itemTitle">
                             Transferred
                         </div>
                         <div>
-                            4<span class="labelText">Mb</span>
+                            4<span class="measure">Mb</span>
                         </div>
-                        <div style="font-size: .8em;color: rgba(var(--v-theme-info), 0.8);">
-                            Total size 20<span class="labelText">Mb</span>
+                        <div class="itemInfo">
+                            Total 20<span class="measure">Mb</span>
                         </div>
                     </v-card>
 
-                    <v-card class="item" elevation="2">
-                        <div style="font-size: .7em; color: rgb(var(--v-theme-on-code));">
+                    <v-card class="item" elevation="1">
+                        <div class="itemTitle">
                             Transferred
                         </div>
                         <div>
-                            10 <span class="labelText">Files</span>
+                            10 <span class="measure">Files</span>
                         </div>
-                        <div style="font-size: .8em;color: rgba(var(--v-theme-info), 0.8);">
-                            Total files 100
+                        <div class="itemInfo">
+                            Total 100
                         </div>
                     </v-card>
 
-                    <v-card class="item error" elevation="2">
-                        <div style="font-size: .7em;">
+                    <v-card class="item" elevation="1">
+                        <div class="itemTitle">
+                            External storage free space
+                        </div>
+                        <div>
+                            100<span class="measure">Mb</span>
+                        </div>
+                        <div class="itemInfo">
+                            Total 100<span class="measure">Mb</span>
+                        </div>
+                    </v-card>
+
+                    <v-card class="item" elevation="1">
+                        <div class="itemTitle">
                             Errors
                         </div>
-                        <div>
+                        <div class="error">
                             10
                         </div>
                     </v-card>
 
-                    <v-card class="item" style="min-width: 320px;" elevation="2">
-                        <div style="font-size: .7em; color: rgb(var(--v-theme-on-code));">
-                            External storage device Free Space
-                        </div>
-                        <div>
-                            100<span class="labelText">Mb</span>
-                        </div>
-                        <div style="font-size: .8em;color: rgba(var(--v-theme-info), 0.8);">
-                            Usb drive (E:) total size 100<span class="labelText">Mb</span>
-                        </div>
-
-                    </v-card>
                 </div>
             </v-card-item>
 
@@ -74,7 +71,6 @@
                 <v-btn @click="closeAction" v-if="showClose" color="primary" variant="outlined">
                     Close
                 </v-btn>
-
             </v-card-actions>
         </v-card>
 
@@ -107,34 +103,41 @@ const closeAction = () => {
 </script>
 
 <style scoped>
-.status {
+.wrapper {
+    background-color: rgba(var(--v-theme-background), 0.7);
+}
+
+.items {
     text-align: center;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     flex-wrap: wrap;
     gap: 20px;
-    /* font-size: 2.2em; */
 }
 
 .item {
-    padding: 10px;
-    min-width: 120px;
-    max-width: 50%;
+    padding: 10px 5px;
+    min-width: 200px;
     text-align: center;
     height: 100px;
 }
 
-.labelText {
+.itemTitle {
+    font-size: .7em;
+    color: rgb(var(--v-theme-on-code));
+}
+
+.itemInfo {
+    font-size: .8em;
+    color: rgba(var(--v-theme-info), 0.8);
+}
+
+.measure {
     font-size: 0.7em;
     padding-left: 3px;
 }
 
 .error {
     color: rgb(var(--v-theme-error));
-}
-
-.no-select {
-    user-select: none;
-    pointer-events: none;
 }
 </style>
