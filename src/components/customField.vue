@@ -112,7 +112,7 @@ const closeAction = () => {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 10px;
 }
 
 .item {
